@@ -150,9 +150,9 @@ int main()
     {
         std::vector<TNote> t = { { 0.1, 0.4, 69 } };
         auto a = synth (t, 0.7, SynthOpts());
-        CHECK (writeWavFile16 ("/tmp/v2i_test.wav", a), "wav write");
+        CHECK (writeWavFile16 ("v2i_test.wav", a), "wav write");
         AudioData b; std::string err;
-        CHECK (readWavFile ("/tmp/v2i_test.wav", b, err), "wav read");
+        CHECK (readWavFile ("v2i_test.wav", b, err), "wav read");
         CHECK (b.samples.size() == a.samples.size() && std::abs (b.sampleRate - a.sampleRate) < 1, "wav size");
         std::printf ("[wav round trip] done\n");
     }
