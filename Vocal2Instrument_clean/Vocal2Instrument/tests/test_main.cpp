@@ -27,7 +27,7 @@ static AudioData synth (const std::vector<TNote>& notes, double total, const Syn
 {
     std::mt19937 rng (o.seed); std::normal_distribution<double> nd (0, 1);
     AudioData a; a.sampleRate = o.sr; a.samples.assign ((size_t) (total * o.sr), 0.f);
-    const double TP = 2 * M_PI;
+    const double TP = 2 * 3.14159265358979323846;
     double phase = 0, vph = 0; double curSt = 60; bool active = false;
     const size_t N = a.samples.size();
     // formant-ish lowpass: harmonics amplitude 1/h with a bump near 800 Hz
